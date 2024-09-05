@@ -99,6 +99,7 @@ Napi::Object Window::Init(Napi::Env env, Napi::Object exports) {
       InstanceMethod("getHwnd", &Window::GetHwnd),
       InstanceMethod("getDimensions", &Window::GetDimensions),
       InstanceMethod("isVisible", &Window::IsVisible),
+      InstanceMethod("isCoveredByAnotherWindow", &Window::IsCoveredByAnotherWindow),
       InstanceMethod("isMinimized", &Window::IsMinimized),
       InstanceMethod("exists", &Window::Exists),
       InstanceMethod("getTitle", &Window::GetTitle),
@@ -234,8 +235,34 @@ Napi::Value Window::GetDimensions(const Napi::CallbackInfo& info) {
 }
 
 Napi::Value Window::IsVisible(const Napi::CallbackInfo& info) {
-  bool returned = IsWindowVisible(this->_identifier);
+  bool isVisible = IsWindowVisible(this->_identifier);
+  bool isMinimized = IsIconic(this->_identifier);
+
+  // A window is visible if it is not minimized and IsWindowVisible returns true
+  bool returned = isVisible && !isMinimized;
   return Napi::Boolean::New(info.Env(), returned);
+}
+
+Napi::Value Window::IsCoveredByAnotherWindow(const Napi::CallbackInfo& info) {
+  RECT windowRect;
+  GetWindowRect(this->_identifier, &windowRect);
+
+  HWND hwndAbove = GetWindow(this->_identifier, GW_HWNDPREV);
+  while (hwndAbove != NULL) {
+    if (IsWindowVisible(hwndAbove)) {
+      RECT aboveRect;
+      GetWindowRect(hwndAbove, &aboveRect);
+
+      // Check if the rectangles overlap
+      if (IntersectRect(NULL, &windowRect, &aboveRect)) {
+        return Napi::Boolean::New(info.Env(), true);
+      }
+    }
+    hwndAbove = GetWindow(hwndAbove, GW_HWNDPREV);
+  }
+
+  // No window above it overlaps
+  return Napi::Boolean::New(info.Env(), false);
 }
 
 Napi::Value Window::IsMinimized(const Napi::CallbackInfo& info) {
