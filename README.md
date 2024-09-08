@@ -6,16 +6,16 @@ This module is exclusively compatible with Windows.
 
 ## Usage
 
-Install with yarn/npm
+Install
 
 ```
-yarn add win-control
+npm install @nzxl101/win-control
 ```
 
 Then, library can be imported as follows.
 
 ```javascript
-const { Window } = require("win-control");
+import { Window } from "@nzxl101/win-control";
 
 // Set a window as foreground using the process identifier
 Window.getByPid(PID).setForeground();
@@ -169,7 +169,7 @@ Closes current window.
 Exposed as:
 
 ```javascript
-require("win-control").SWP;
+import { SWP } from "@nzxl101/win-control";
 ```
 
 With the following properties
@@ -195,7 +195,7 @@ With the following properties
 Exposed as:
 
 ```javascript
-require("win-control").HWND;
+import { HWND } from "@nzxl101/win-control";
 ```
 
 With the following properties
@@ -210,7 +210,7 @@ With the following properties
 Exposed as:
 
 ```javascript
-require("win-control").AncestorFlags;
+import { AncestorFlags } from "@nzxl101/win-control";
 ```
 
 With the following properties
@@ -224,7 +224,7 @@ With the following properties
 Exposed as:
 
 ```javascript
-require("win-control").WindowStates;
+import { WindowStates } from "@nzxl101/win-control";
 ```
 
 With the following properties
@@ -250,7 +250,7 @@ For more information on uses, please see [example](example/index.js).
 ## Contributing
 
 Bug reports and merge requests are welcome on Github at
-https://github.com/nosolosoftware/win-control using
+https://github.com/nzxl101/win-control using
 [GitHub Flow](https://guides.github.com/introduction/flow/index.html). This project is intended to
 be a safe, welcoming space for collaboration, and contributors are expected to adhere to the
 [Contributor Covenant](http://contributor-covenant.org) code of conduct.
@@ -271,3 +271,5 @@ In order to publish a new version you need to define `NODE_PRE_GYP_GITHUB_TOKEN`
 ## License
 
 Copyright (c) 2019-2020 NoSoloSoftware Network S.L. - Released under [MIT](LICENSE) license.
+
+Additional Copyright (c) 2024 nzxl101 <nzxl@nzxl.space>

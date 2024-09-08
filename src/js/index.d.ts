@@ -1,4 +1,4 @@
-declare module "win-control" {
+declare module "@nzxl101/win-control" {
     type WindowStates = Readonly<{
         HIDE: 0;
         SHOWNORMAL: 1;

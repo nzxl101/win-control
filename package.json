@@ -1,6 +1,6 @@
 {
     "name": "@nzxl101/win-control",
-    "version": "0.3.2",
+    "version": "0.3.3",
     "description": "Windows manipulation made easy for node.js",
     "author": "nzxl101 <nzxl@nzxl.space>",
     "contributors": [
