@@ -1,47 +1,50 @@
 {
-  "name": "win-control",
-  "version": "0.3.1",
-  "description": "Windows manipulation made easy for node.js",
-  "author": "Francisco Padillo <fpadillo@nosolosoftware.es>",
-  "license": "MIT",
-  "main": "src/js/index.js",
-  "scripts": {
-    "install": "node-pre-gyp install --fallback-to-build",
-    "pack": "node-pre-gyp package"
-  },
-  "dependencies": {
-    "node-addon-api": "^3.0.0",
-    "node-pre-gyp": "^0.12.0"
-  },
-  "devDependencies": {
-    "node-pre-gyp-github": "^1.4.3"
-  },
-  "peerDependencies": {
-    "node-gyp": "7.x"
-  },
-  "peerDependenciesMeta": {
-    "node-gyp": {
-      "optional": true
-    }
-  },
-  "optionalDependencies": {
-    "node-gyp": "7.x"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/nosolosoftware/win-control.git"
-  },
-  "os": [
-    "win32"
-  ],
-  "binary": {
-    "module_name": "wincontrol",
-    "module_path": "./lib/binding/",
-    "host": "https://github.com/nosolosoftware/win-control/releases/download/",
-    "remote_path": "{version}"
-  },
-  "files": [
-    "binding.gyp",
-    "src"
-  ]
+    "name": "win-control",
+    "version": "0.3.2",
+    "description": "Windows manipulation made easy for node.js",
+    "author": "nzxl101 <nzxl@nzxl.space>",
+    "contributors": [
+        "Francisco Padillo <fpadillo@nosolosoftware.es>"
+    ],
+    "license": "MIT",
+    "main": "src/js/index.js",
+    "types": "src/js/index.d.ts",
+    "scripts": {
+        "install": "node-pre-gyp install --update-binary --fallback-to-build",
+        "pack": "node-pre-gyp package"
+    },
+    "dependencies": {
+        "node-addon-api": "^8.1.0",
+        "node-pre-gyp": "^0.17.0"
+    },
+    "devDependencies": {
+        "@types/node": "^22.5.4",
+        "node-pre-gyp-github": "^1.4.3",
+        "typescript": "^5.5.4"
+    },
+    "peerDependenciesMeta": {
+        "node-gyp": {
+            "optional": true
+        }
+    },
+    "optionalDependencies": {
+        "node-gyp": "^10.2.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/nzxl101/win-control.git"
+    },
+    "os": [
+        "win32"
+    ],
+    "binary": {
+        "module_name": "wincontrol",
+        "module_path": "./lib/binding/",
+        "host": "https://github.com/nzxl101/win-control/releases/download/",
+        "remote_path": "{version}"
+    },
+    "files": [
+        "binding.gyp",
+        "src"
+    ]
 }

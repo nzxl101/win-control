@@ -1,4 +1,0 @@
----
-extends: nosolosoftware
-rules:
-  'no-console': 'off'
